@@ -1,43 +1,182 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heuro - Scripts e Automatizações</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 30px;
+            background-color: #2d2d2d;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        h1, h2, h3 {
+            color: #f4f4f4;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 15px 0;
+            border-bottom: 1px solid #444;
+        }
+        .whatsapp-button {
+            display: block;
+            width: 220px;
+            margin: 30px 0;
+            padding: 12px;
+            background-color: #25d366;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .whatsapp-button:hover {
+            background-color: #1da851;
+        }
+        .prices {
+            margin: 30px 0;
+        }
+        .currency {
+            font-weight: bold;
+            color: #f4f4f4;
+        }
+        .blog-section {
+            margin: 30px 0;
+        }
+        .blog-section h2 {
+            color: #ffcc00;
+        }
+        .blog-section p {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Heuro - Scripts e Automatizações</h1>
+        <p>Bem-vindo à Heuro! Aqui você encontra uma variedade de scripts e ferramentas para otimizar sua vida digital. Confira a lista completa abaixo:</p>
+        <p>Welcome to Heuro! Here you’ll find a variety of scripts and tools to optimize your digital life. Check out the full list below:</p>
+        
+        <h2>1. CHATBOT PARA TELEGRAM</h2>
+        <p>Desenvolva um chatbot para gerenciar interações automatizadas com seus clientes diretamente no Telegram.</p>
+        <p>Develop a chatbot to manage automated interactions with your customers directly on Telegram.</p>
 
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+        <h2>2. GERENCIADOR DE DESPESAS</h2>
+        <p>Automatize o controle das suas finanças pessoais com um sistema de gestão de despesas integrado ao Telegram.</p>
+        <p>Automate the control of your personal finances with an expense management system integrated with Telegram.</p>
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+        <h2>3. SISTEMA DE GESTÃO DE TOKENS</h2>
+        <p>Gerencie o acesso de clientes aos seus serviços de bot com um sistema de tokens que garante acesso apenas para clientes que estão em dia com o pagamento.</p>
+        <p>Manage client access to your bot services with a token system that ensures access only for clients who are up-to-date with payments.</p>
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+        <h2>4. BOT DE MODERAÇÃO PARA DISCORD</h2>
+        <p>Automatize a moderação de servidores Discord, criando sistemas para banimento, alerta de infrações e mais.</p>
+        <p>Automate Discord server moderation by creating systems for banning, warning of infractions, and more.</p>
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+        <h2>5. PLATAFORMA DE APOSTAS EM FREE FIRE</h2>
+        <p>Crie uma plataforma para organizar campeonatos e apostas em Free Fire com funcionalidades automatizadas para gerenciar apostas, resultados e pagamentos.</p>
+        <p>Create a platform to organize Free Fire tournaments and bets with automated features for managing bets, results, and payments.</p>
 
-jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        <h2>6. BOT DE FINANÇAS PESSOAIS</h2>
+        <p>Desenvolva um bot integrado ao Telegram para ajudar no controle de despesas e rendimentos.</p>
+        <p>Develop a Telegram-integrated bot to help manage expenses and income.</p>
+
+        <h2>7. INTEGRAÇÃO DE BOTS COM WHATSAPP</h2>
+        <p>Automatize interações no WhatsApp com bots para atendimento ao cliente e marketing.</p>
+        <p>Automate WhatsApp interactions with bots for customer service and marketing.</p>
+
+        <h2>8. PLATAFORMA DE VÍDEO-CHAT</h2>
+        <p>Crie um site de videochamadas semelhante ao Omegle, mas com um toque de redes sociais, permitindo perfis personalizados e interação global.</p>
+        <p>Create a video chat site similar to Omegle, but with a social media touch, allowing personalized profiles and global interaction.</p>
+
+        <h2>9. SISTEMA DE ATENDIMENTO MULTIUSUÁRIOS PARA WHATSAPP</h2>
+        <p>Desenvolva uma plataforma onde múltiplos usuários podem gerenciar atendimentos via WhatsApp de forma automatizada.</p>
+        <p>Develop a platform where multiple users can manage WhatsApp support in an automated way.</p>
+
+        <h2>10. GERENCIADOR DE COMUNIDADE</h2>
+        <p>Plataforma para criar uma comunidade online com perfis de usuários, interações e atualizações automáticas.</p>
+        <p>Platform to create an online community with user profiles, interactions, and automatic updates.</p>
+
+        <h2>11. JOGO DE CORRIDA ONLINE</h2>
+        <p>Desenvolva um jogo online de corrida de carros com um mapa baseado em Angola.</p>
+        <p>Develop an online car racing game with a map based on Angola.</p>
+
+        <h2>12. APLICATIVO DE VIDEOCHAMADA</h2>
+        <p>Desenvolva um aplicativo de videochamadas limitado a quatro países, com funcionalidades avançadas como perfis, câmeras múltiplas e suporte para mensagens pagas.</p>
+        <p>Develop a video call app limited to four countries, with advanced features such as profiles, multiple cameras, and support for paid messages.</p>
+
+        <h2>13. SISTEMA DE CLOUD PC</h2>
+        <p>Desenvolva um sistema de Cloud PC que permite rodar jogos como GTA V RP em dispositivos Android, gerenciando RAM e armazenamento de forma eficiente.</p>
+        <p>Develop a Cloud PC system that allows running games like GTA V RP on Android devices, managing RAM and storage efficiently.</p>
+
+        <h2>14. CONTROLE DE VOZ PARA FREE FIRE</h2>
+        <p>Desenvolva um sistema de controle de voz para o jogo Free Fire, permitindo que o personagem execute ações baseadas em comandos de voz.</p>
+        <p>Develop a voice control system for the game Free Fire, allowing the character to perform actions based on voice commands.</p>
+
+        <h2>15. BOT DE APOIO PARA FLASK</h2>
+        <p>Crie um bot para integrar funcionalidades de Flask, automatizando processos dentro do seu site ou aplicativo.</p>
+        <p>Create a bot to integrate Flask functionalities, automating processes within your website or application.</p>
+
+        <h2>16. SISTEMA DE APOSTAS AUTOMATIZADAS</h2>
+        <p>Desenvolva um sistema para gerenciar apostas em jogos ou eventos com automação completa de cálculos e resultados.</p>
+        <p>Develop a system to manage bets on games or events with full automation of calculations and results.</p>
+
+        <h2>17. EXTENSÃO PARA LOJAS VIRTUAIS</h2>
+        <p>Automatize a gestão da sua loja virtual, desde o controle de inventário até atualizações automáticas de preços e promoções.</p>
+        <p>Automate the management of your online store, from inventory control to automatic updates of prices and promotions.</p>
+
+        <h2>18. FERRAMENTA DE ANÁLISE DE DADOS</h2>
+        <p>Obtenha insights em tempo real com uma ferramenta de análise de dados personalizada para suas necessidades.</p>
+        <p>Get real-time insights with a data analysis tool customized to your needs.</p>
+
+        <h2>19. GESTÃO AUTOMATIZADA DE LEADS</h2>
+        <p>Automatize o processo de captação e gestão de leads, incluindo notificações e lembretes automáticos.</p>
+        <p>Automate the lead acquisition and management process, including notifications and automatic reminders.</p>
+
+        <h2>20. GERENCIADOR FINANCEIRO AUTOMATIZADO</h2>
+        <p>Desenvolva uma ferramenta para automatizar o controle financeiro, com relatórios e análises integradas.</p>
+        <p>Develop a tool to automate financial control, with integrated reports and analyses.</p>
+
+        <h2>PREÇOS</h2>
+        <div class="prices">
+            <p class="currency">R$ 20</p>
+            <p>Para um script básico.</p>
+            <p>$10</p>
+            <p>For a basic script.</p>
+            
+            <p class="currency">R$ 50</p>
+            <p>Para scripts avançados com suporte.</p>
+            <p>$25</p>
+            <p>For advanced scripts with support.</p>
+            
+            <p class="currency">R$ 100</p>
+            <p>Para pacotes completos e personalizados.</p>
+            <p>$50</p>
+            <p>For complete and customized packages.</p>
+        </div>
+
+        <h2>BLOG</h2>
+        <div class="blog-section">
+            <h2>Últimos Posts</h2>
+            <p>Fique atualizado com as últimas notícias e tutoriais sobre automações e scripts.</p>
+            <p>Stay updated with the latest news and tutorials on automation and scripts.</p>
+        </div>
+
+        <a href="https://wa.me/1234567890" class="whatsapp-button">Entre em contato pelo WhatsApp</a>
+    </div>
+</body>
+</html>
