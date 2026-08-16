@@ -1,183 +1,522 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heuro - Scripts e Automatizações</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1c1c1c;
-            color: #e0e0e0;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 90%;
-            margin: auto;
-            padding: 30px;
-            background-color: #2d2d2d;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-        h1, h2, h3 {
-            color: #f4f4f4;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            padding: 15px 0;
-            border-bottom: 1px solid #444;
-        }
-        .whatsapp-button {
-            display: block;
-            width: 220px;
-            margin: 30px 0;
-            padding: 12px;
-            background-color: #25d366;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 16px;
-        }
-        .whatsapp-button:hover {
-            background-color: #1da851;
-        }
-        .prices {
-            margin: 30px 0;
-        }
-        .currency {
-            font-weight: bold;
-            color: #f4f4f4;
-        }
-        .blog-section {
-            margin: 30px 0;
-        }
-        .blog-section h2 {
-            color: #ffcc00;
-        }
-        .blog-section p {
-            color: #ccc;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heuro Dev — Projetos, código e desenvolvimento</title>
+<meta name="description" content="Portfólio e blog pessoal de Heuro, desenvolvedor Full Stack focado em Python, APIs, automação e sistemas web.">
+<meta property="og:title" content="Heuro Dev — Projetos, código e desenvolvimento">
+<meta property="og:description" content="Portfólio e blog pessoal de Heuro, desenvolvedor Full Stack focado em Python, APIs, automação e sistemas web.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://heuro12.github.io/heuro-dev/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231A1816'/%3E%3Ctext x='50' y='68' font-size='58' font-family='monospace' fill='%23F4F1EA' text-anchor='middle'%3Eh%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F5F2EA;
+  --cream-2:#EDE8DC;
+  --ink:#1B1815;
+  --gray:#65605A;
+  --gray-light:#94897A;
+  --line:#DAD3C4;
+  --terracotta:#B35A34;
+  --terracotta-dim:#C97C57;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit}
+ul{list-style:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.route{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--terracotta);
+  letter-spacing:0.02em;
+  display:block;
+  margin-bottom:14px;
+}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-0.01em}
+:focus-visible{outline:2px solid var(--terracotta);outline-offset:3px}
+
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(245,242,234,0.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:1080px;margin:0 auto;padding:0 24px;
+  height:68px;display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-family:var(--mono);font-size:16px;font-weight:500;letter-spacing:0.01em}
+nav.desktop-nav{display:none}
+nav.desktop-nav ul{display:flex;gap:32px}
+nav.desktop-nav a{
+  font-size:14px;color:var(--gray);transition:color .2s;
+  position:relative;padding:4px 0;
+}
+nav.desktop-nav a:hover{color:var(--ink)}
+nav.desktop-nav a::after{
+  content:'';position:absolute;bottom:0;left:0;width:0;height:1px;
+  background:var(--terracotta);transition:width .25s;
+}
+nav.desktop-nav a:hover::after{width:100%}
+.menu-btn{
+  display:flex;flex-direction:column;gap:5px;width:24px;padding:8px;
+}
+.menu-btn span{width:100%;height:1.5px;background:var(--ink);transition:transform .25s,opacity .25s}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+.mobile-nav{
+  position:fixed;inset:68px 0 0 0;background:var(--cream);
+  z-index:99;transform:translateX(100%);transition:transform .3s ease;
+  overflow-y:auto;
+}
+.mobile-nav.open{transform:translateX(0)}
+.mobile-nav ul{padding:32px 24px;display:flex;flex-direction:column;gap:4px}
+.mobile-nav a{
+  font-family:var(--serif);font-size:28px;padding:14px 0;
+  border-bottom:1px solid var(--line);
+}
+
+main{display:block}
+section{padding:96px 0}
+.section-alt{background:var(--cream-2)}
+.section-head{max-width:640px;margin-bottom:48px}
+.section-head h2{font-size:clamp(28px,4vw,38px)}
+
+.hero{padding:100px 0 90px;position:relative}
+.hero .wrap{max-width:760px}
+.hero-title{font-size:clamp(44px,9vw,76px);line-height:1.02;margin-bottom:18px}
+.hero-sub{
+  font-family:var(--mono);font-size:15px;color:var(--terracotta);
+  margin-bottom:22px;
+}
+.hero-text{font-size:17px;color:var(--gray);max-width:520px;margin-bottom:36px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 26px;font-size:14px;font-weight:500;
+  border-radius:2px;transition:transform .2s,background .2s,border-color .2s;
+}
+.btn-primary{background:var(--ink);color:var(--cream)}
+.btn-primary:hover{background:var(--terracotta)}
+.btn-outline{border:1px solid var(--ink)}
+.btn-outline:hover{border-color:var(--terracotta);color:var(--terracotta)}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+.prose p{color:var(--gray);font-size:16px;margin-bottom:18px;max-width:640px}
+
+.project-grid{display:grid;gap:20px;grid-template-columns:1fr}
+.project-card{
+  border:1px solid var(--line);background:var(--cream);
+  padding:32px;transition:border-color .25s,transform .25s;
+}
+.project-card:hover{border-color:var(--terracotta);transform:translateY(-3px)}
+.project-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:14px}
+.project-card h3{font-size:22px}
+.status{
+  font-family:var(--mono);font-size:11px;white-space:nowrap;
+  padding:5px 10px;border:1px solid var(--line);color:var(--gray);
+  text-transform:uppercase;letter-spacing:0.04em;
+}
+.project-card p{color:var(--gray);font-size:15px;margin-bottom:16px}
+.project-note{
+  font-size:13px;color:var(--gray-light);font-style:italic;margin-bottom:16px;
+}
+.tech-list{display:flex;flex-wrap:wrap;gap:8px}
+.tech-list span{
+  font-family:var(--mono);font-size:12px;color:var(--terracotta);
+  background:var(--cream-2);padding:4px 9px;
+}
+
+.notes-grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.note-item{background:var(--cream-2);padding:28px}
+.note-item .route{margin-bottom:10px}
+.note-item h3{font-size:19px;margin-bottom:10px;line-height:1.3}
+.note-item p{color:var(--gray);font-size:14px;margin-bottom:14px}
+.note-tag{
+  font-family:var(--mono);font-size:11px;color:var(--gray-light);
+  text-transform:uppercase;letter-spacing:0.04em;
+}
+
+.goals-list{margin-top:28px;border-top:1px solid var(--line)}
+.goals-list li{
+  display:flex;align-items:baseline;gap:16px;
+  padding:16px 0;border-bottom:1px solid var(--line);font-size:15px;
+}
+.goals-list li span{font-family:var(--mono);color:var(--terracotta);font-size:13px}
+
+.stack-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);margin-top:8px;
+}
+.stack-item{
+  background:var(--cream);padding:18px 20px;
+  font-family:var(--mono);font-size:14px;display:flex;align-items:center;gap:10px;
+}
+.stack-item::before{content:'';width:6px;height:6px;background:var(--terracotta);flex-shrink:0}
+
+.split{display:grid;gap:40px}
+.contact-links{display:flex;flex-direction:column;gap:16px;margin-top:28px}
+.contact-links a{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 0;border-bottom:1px solid var(--line);font-size:16px;
+  transition:padding-left .2s,color .2s;
+}
+.contact-links a:hover{padding-left:8px;color:var(--terracotta)}
+.contact-links span{font-family:var(--mono);font-size:13px;color:var(--gray-light)}
+
+footer{border-top:1px solid var(--line);padding:40px 0}
+.footer-inner{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.footer-inner .logo{font-size:14px}
+.footer-inner p{font-size:13px;color:var(--gray-light)}
+
+@media(min-width:640px){
+  .project-grid{grid-template-columns:1fr 1fr}
+  .notes-grid{grid-template-columns:1fr 1fr}
+  .stack-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(min-width:768px){
+  .split{grid-template-columns:1fr 1fr;align-items:start}
+}
+@media(min-width:1024px){
+  nav.desktop-nav{display:block}
+  .menu-btn,.mobile-nav{display:none}
+  section{padding:120px 0}
+  .project-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-inner{flex-direction:row;justify-content:space-between;align-items:center}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  *{transition-duration:0.01ms !important}
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Heuro - Scripts e Automatizações</h1>
-        <p>Bem-vindo à Heuro! Aqui você encontra uma variedade de scripts e ferramentas para otimizar sua vida digital. Confira a lista completa abaixo:</p>
-        <p>Welcome to Heuro! Here you’ll find a variety of scripts and tools to optimize your digital life. Check out the full list below:</p>
-        
-        <h2>1. CHATBOT PARA TELEGRAM</h2>
-        <p>Desenvolva um chatbot para gerenciar interações automatizadas com seus clientes diretamente no Telegram.</p>
-        <p>Develop a chatbot to manage automated interactions with your customers directly on Telegram.</p>
 
-        <h2>2. GERENCIADOR DE DESPESAS</h2>
-        <p>Automatize o controle das suas finanças pessoais com um sistema de gestão de despesas integrado ao Telegram.</p>
-        <p>Automate the control of your personal finances with an expense management system integrated with Telegram.</p>
+<header>
+  <div class="header-inner">
+    <a href="#top" class="logo">[ heuro dev ]</a>
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="#top">Início</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#notas">Notas</a></li>
+        <li><a href="#objetivos">Objetivos</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Navegação mobile">
+    <ul>
+      <li><a href="#top">Início</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#notas">Notas</a></li>
+      <li><a href="#objetivos">Objetivos</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
 
-        <h2>3. SISTEMA DE GESTÃO DE TOKENS</h2>
-        <p>Gerencie o acesso de clientes aos seus serviços de bot com um sistema de tokens que garante acesso apenas para clientes que estão em dia com o pagamento.</p>
-        <p>Manage client access to your bot services with a token system that ensures access only for clients who are up-to-date with payments.</p>
+<main>
 
-        <h2>4. BOT DE MODERAÇÃO PARA DISCORD</h2>
-        <p>Automatize a moderação de servidores Discord, criando sistemas para banimento, alerta de infrações e mais.</p>
-        <p>Automate Discord server moderation by creating systems for banning, warning of infractions, and more.</p>
-
-        <h2>5. PLATAFORMA DE APOSTAS EM FREE FIRE</h2>
-        <p>Crie uma plataforma para organizar campeonatos e apostas em Free Fire com funcionalidades automatizadas para gerenciar apostas, resultados e pagamentos.</p>
-        <p>Create a platform to organize Free Fire tournaments and bets with automated features for managing bets, results, and payments.</p>
-
-        <h2>6. BOT DE FINANÇAS PESSOAIS</h2>
-        <p>Desenvolva um bot integrado ao Telegram para ajudar no controle de despesas e rendimentos.</p>
-        <p>Develop a Telegram-integrated bot to help manage expenses and income.</p>
-
-        <h2>7. INTEGRAÇÃO DE BOTS COM WHATSAPP</h2>
-        <p>Automatize interações no WhatsApp com bots para atendimento ao cliente e marketing.</p>
-        <p>Automate WhatsApp interactions with bots for customer service and marketing.</p>
-
-        <h2>8. PLATAFORMA DE VÍDEO-CHAT</h2>
-        <p>Crie um site de videochamadas semelhante ao Omegle, mas com um toque de redes sociais, permitindo perfis personalizados e interação global.</p>
-        <p>Create a video chat site similar to Omegle, but with a social media touch, allowing personalized profiles and global interaction.</p>
-
-        <h2>9. SISTEMA DE ATENDIMENTO MULTIUSUÁRIOS PARA WHATSAPP</h2>
-        <p>Desenvolva uma plataforma onde múltiplos usuários podem gerenciar atendimentos via WhatsApp de forma automatizada.</p>
-        <p>Develop a platform where multiple users can manage WhatsApp support in an automated way.</p>
-
-        <h2>10. GERENCIADOR DE COMUNIDADE</h2>
-        <p>Plataforma para criar uma comunidade online com perfis de usuários, interações e atualizações automáticas.</p>
-        <p>Platform to create an online community with user profiles, interactions, and automatic updates.</p>
-
-        <h2>11. JOGO DE CORRIDA ONLINE</h2>
-        <p>Desenvolva um jogo online de corrida de carros com um mapa baseado em Angola.</p>
-        <p>Develop an online car racing game with a map based on Angola.</p>
-
-        <h2>12. APLICATIVO DE VIDEOCHAMADA</h2>
-        <p>Desenvolva um aplicativo de videochamadas limitado a quatro países, com funcionalidades avançadas como perfis, câmeras múltiplas e suporte para mensagens pagas.</p>
-        <p>Develop a video call app limited to four countries, with advanced features such as profiles, multiple cameras, and support for paid messages.</p>
-
-        <h2>13. SISTEMA DE CLOUD PC</h2>
-        <p>Desenvolva um sistema de Cloud PC que permite rodar jogos como GTA V RP em dispositivos Android, gerenciando RAM e armazenamento de forma eficiente.</p>
-        <p>Develop a Cloud PC system that allows running games like GTA V RP on Android devices, managing RAM and storage efficiently.</p>
-
-        <h2>14. CONTROLE DE VOZ PARA FREE FIRE</h2>
-        <p>Desenvolva um sistema de controle de voz para o jogo Free Fire, permitindo que o personagem execute ações baseadas em comandos de voz.</p>
-        <p>Develop a voice control system for the game Free Fire, allowing the character to perform actions based on voice commands.</p>
-
-        <h2>15. BOT DE APOIO PARA FLASK</h2>
-        <p>Crie um bot para integrar funcionalidades de Flask, automatizando processos dentro do seu site ou aplicativo.</p>
-        <p>Create a bot to integrate Flask functionalities, automating processes within your website or application.</p>
-
-        <h2>16. SISTEMA DE APOSTAS AUTOMATIZADAS</h2>
-        <p>Desenvolva um sistema para gerenciar apostas em jogos ou eventos com automação completa de cálculos e resultados.</p>
-        <p>Develop a system to manage bets on games or events with full automation of calculations and results.</p>
-
-        <h2>17. EXTENSÃO PARA LOJAS VIRTUAIS</h2>
-        <p>Automatize a gestão da sua loja virtual, desde o controle de inventário até atualizações automáticas de preços e promoções.</p>
-        <p>Automate the management of your online store, from inventory control to automatic updates of prices and promotions.</p>
-
-        <h2>18. FERRAMENTA DE ANÁLISE DE DADOS</h2>
-        <p>Obtenha insights em tempo real com uma ferramenta de análise de dados personalizada para suas necessidades.</p>
-        <p>Get real-time insights with a data analysis tool customized to your needs.</p>
-
-        <h2>19. GESTÃO AUTOMATIZADA DE LEADS</h2>
-        <p>Automatize o processo de captação e gestão de leads, incluindo notificações e lembretes automáticos.</p>
-        <p>Automate the lead acquisition and management process, including notifications and automatic reminders.</p>
-
-        <h2>20. GERENCIADOR FINANCEIRO AUTOMATIZADO</h2>
-        <p>Desenvolva uma ferramenta para automatizar o controle financeiro, com relatórios e análises integradas.</p>
-        <p>Develop a tool to automate financial control, with integrated reports and analyses.</p>
-
-        <h2>PREÇOS</h2>
-        <div class="prices">
-            <p class="currency">R$ 20</p>
-            <p>Para um script básico.</p>
-            <p>$10</p>
-            <p>For a basic script.</p>
-            
-            <p class="currency">R$ 50</p>
-            <p>Para scripts avançados com suporte.</p>
-            <p>$25</p>
-            <p>For advanced scripts with support.</p>
-            
-            <p class="currency">R$ 100</p>
-            <p>Para pacotes completos e personalizados.</p>
-            <p>$50</p>
-            <p>For complete and customized packages.</p>
-        </div>
-
-        <h2>BLOG</h2>
-        <div class="blog-section">
-            <h2>Últimos Posts</h2>
-            <p>Fique atualizado com as últimas notícias e tutoriais sobre automações e scripts.</p>
-            <p>Stay updated with the latest news and tutorials on automation and scripts.</p>
-        </div>
-
-        <a href="https://wa.me/1234567890" class="whatsapp-button">Entre em contato pelo WhatsApp</a>
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="hero-sub">/heuro-dev</span>
+    <h1 class="hero-title">Heuro Dev</h1>
+    <p class="hero-text">Projetos, código e coisas que estou construindo.</p>
+    <p class="hero-text">Este é o meu espaço para registrar projetos, decisões técnicas, aprendizados e algumas das coisas que venho construindo desde 2021.</p>
+    <div class="hero-actions">
+      <a href="#projetos" class="btn btn-primary">Ver projetos</a>
+      <a href="https://github.com/Heuro12" class="btn btn-outline" target="_blank" rel="noopener" aria-label="Abrir GitHub de Heuro Dev em nova aba">GitHub</a>
     </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="route">/sobre-o-blog</span>
+      <h2>Por que este blog existe</h2>
+    </div>
+    <div class="prose reveal">
+      <p>Durante muito tempo, meus projetos ficaram espalhados entre repositórios, servidores e ideias que nem sempre chegaram ao fim. Criei este espaço para organizar melhor esse caminho e registrar aquilo que realmente vale a pena guardar.</p>
+      <p>Alguns projetos são públicos. Outros continuam privados por terem código, documentação ou ideias que fazem parte de produtos que pretendo levar adiante. Mesmo assim, existe muita coisa que pode ser compartilhada sem expor o que deve permanecer privado.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projetos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="route">/projetos</span>
+      <h2>Projetos que estou construindo</h2>
+    </div>
+    <div class="project-grid">
+
+      <article class="project-card reveal">
+        <div class="project-top">
+          <h3>Velox AI</h3>
+          <span class="status">Privado</span>
+        </div>
+        <p>Uma plataforma full-stack que desenvolvi para operação e gestão de projetos e serviços digitais. O sistema envolve frontend, backend, autenticação, APIs, banco de dados, comunicação e infraestrutura.</p>
+        <p class="project-note">Parte da implementação permanece privada por questões relacionadas ao produto.</p>
+        <div class="tech-list">
+          <span>Python</span><span>FastAPI</span><span>JavaScript</span><span>PostgreSQL</span><span>Docker</span>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-top">
+          <h3>ShadowOSINT</h3>
+          <span class="status">Experimental</span>
+        </div>
+        <p>Uma plataforma voltada para coleta e organização de informações públicas, análise de exposição e geração de relatórios. O projeto reúne automação, segurança e processamento de dados em uma interface única.</p>
+        <div class="tech-list">
+          <span>Python</span><span>FastAPI</span><span>OSINT</span><span>Automação</span><span>IA</span>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-top">
+          <h3>AutoReel Pro</h3>
+          <span class="status">Experimental</span>
+        </div>
+        <p>Uma ferramenta criada para automatizar parte do processo de produção de vídeos a partir de roteiros. O sistema trabalha com geração e organização de conteúdo, imagens e processamento de vídeo.</p>
+        <div class="tech-list">
+          <span>Python</span><span>FastAPI</span><span>IA</span><span>Automação</span><span>Processamento de vídeo</span>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-top">
+          <h3>E-commerce</h3>
+          <span class="status">Em desenvolvimento</span>
+        </div>
+        <p>Um sistema de comércio eletrônico que venho desenvolvendo como projeto de produto. O objetivo é trabalhar não apenas a interface, mas também autenticação, produtos, pedidos, administração e estrutura de backend.</p>
+        <div class="tech-list">
+          <span>Python</span><span>FastAPI</span><span>JavaScript</span><span>SQLite</span><span>HTML</span><span>CSS</span>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-top">
+          <h3>ReelFlow</h3>
+          <span class="status">Projeto anterior</span>
+        </div>
+        <p>Projeto de produção e automação relacionado a conteúdo em vídeo. Foi um dos projetos maiores que desenvolvi e serviu para trabalhar diferentes partes de uma aplicação web.</p>
+        <div class="tech-list">
+          <span>Next.js</span><span>JavaScript</span><span>APIs</span><span>Automação</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" id="notas">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="route">/notas-dev</span>
+      <h2>Notas de desenvolvimento</h2>
+    </div>
+    <p class="reveal" style="color:var(--gray);max-width:600px;margin-bottom:40px;font-size:15px">
+      Textos curtos sobre coisas que aprendi ou construí ao longo do caminho. Esta seção vai crescer aos poucos, conforme eu for escrevendo com calma sobre cada assunto.
+    </p>
+    <div class="notes-grid reveal">
+      <div class="note-item">
+        <span class="route">01</span>
+        <h3>Por que comecei a construir projetos próprios</h3>
+        <p>Um pouco sobre o que me levou a sair da teoria e começar a colocar sistemas de pé, mesmo sem saber exatamente onde eles iam parar.</p>
+        <span class="note-tag">Em desenvolvimento</span>
+      </div>
+      <div class="note-item">
+        <span class="route">02</span>
+        <h3>Do primeiro script aos sistemas completos</h3>
+        <p>A diferença entre escrever um script que resolve um problema pontual e construir algo que precisa continuar funcionando.</p>
+        <span class="note-tag">Em desenvolvimento</span>
+      </div>
+      <div class="note-item">
+        <span class="route">03</span>
+        <h3>O que aprendi trabalhando com FastAPI</h3>
+        <p>Algumas decisões, armadilhas e ajustes que fiz ao usar FastAPI em projetos reais, fora de tutoriais.</p>
+        <span class="note-tag">Em desenvolvimento</span>
+      </div>
+      <div class="note-item">
+        <span class="route">04</span>
+        <h3>Quando um projeto cresce mais do que o planejado</h3>
+        <p>Sobre lidar com escopo, arquitetura e decisões técnicas quando um projeto pessoal deixa de ser pequeno.</p>
+        <span class="note-tag">Em desenvolvimento</span>
+      </div>
+      <div class="note-item">
+        <span class="route">05</span>
+        <h3>Por que nem todo projeto precisa ser público</h3>
+        <p>Reflexões sobre o que faz sentido compartilhar e o que faz mais sentido manter privado, ao menos por enquanto.</p>
+        <span class="note-tag">Em desenvolvimento</span>
+      </div>
+      <div class="note-item">
+        <span class="route">06</span>
+        <h3>Construir, quebrar e começar novamente</h3>
+        <p>Sobre os projetos que não deram certo, o que ficou deles e por que recomeçar faz parte do processo.</p>
+        <span class="note-tag">Em desenvolvimento</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="objetivos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="route">/objetivos</span>
+      <h2>Onde quero chegar</h2>
+    </div>
+    <div class="prose reveal">
+      <p>Meu objetivo agora é transformar a experiência adquirida em projetos próprios em experiência profissional dentro de uma equipe.</p>
+      <p>Quero trabalhar em ambientes onde possa aprender com outros desenvolvedores, participar de sistemas reais e continuar evoluindo principalmente em backend, APIs, arquitetura, automação e segurança.</p>
+      <p>Também quero continuar desenvolvendo produtos próprios. Alguns podem virar negócios; outros simplesmente vão continuar como projetos de estudo. O importante é continuar construindo.</p>
+    </div>
+    <ul class="goals-list reveal">
+      <li><span>→</span>Aprofundar Python e arquitetura backend</li>
+      <li><span>→</span>Trabalhar em projetos reais</li>
+      <li><span>→</span>Evoluir em segurança</li>
+      <li><span>→</span>Melhorar minha experiência com sistemas distribuídos e APIs</li>
+      <li><span>→</span>Continuar criando produtos próprios</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section-alt" id="sobre">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="section-head reveal" style="margin-bottom:24px">
+          <span class="route">/sobre</span>
+          <h2>Sobre mim</h2>
+        </div>
+        <div class="prose reveal">
+          <p>Sou Heuro, desenvolvedor Full Stack com foco maior em backend. Trabalho principalmente com Python e JavaScript e tenho experiência prática construindo APIs, sistemas web, automações e integrações.</p>
+          <p>Comecei a estudar programação e tecnologia antes de transformar isso em algo mais sério. Desde 2021 venho acumulando projetos, testes, erros, recomeços e bastante código.</p>
+          <p>Hoje meu foco está em escrever sistemas mais organizados, entender melhor arquitetura e transformar projetos que antes eram apenas experimentos em software realmente utilizável.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="route">/stack</span>
+        <div class="stack-grid">
+          <div class="stack-item">Python</div>
+          <div class="stack-item">FastAPI</div>
+          <div class="stack-item">JavaScript</div>
+          <div class="stack-item">HTML</div>
+          <div class="stack-item">CSS</div>
+          <div class="stack-item">Node.js</div>
+          <div class="stack-item">PostgreSQL</div>
+          <div class="stack-item">SQLite</div>
+          <div class="stack-item">Docker</div>
+          <div class="stack-item">Linux</div>
+          <div class="stack-item">Git</div>
+          <div class="stack-item">APIs REST</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="route">/github</span>
+      <h2>Código público</h2>
+    </div>
+    <p class="reveal" style="color:var(--gray);max-width:560px;margin-bottom:28px;font-size:16px">
+      Alguns dos meus projetos e experimentos estão disponíveis no GitHub. O restante permanece privado quando envolve código proprietário ou projetos que ainda estou desenvolvendo.
+    </p>
+    <a href="https://github.com/Heuro12" class="btn btn-outline reveal" target="_blank" rel="noopener">Ver GitHub</a>
+  </div>
+</section>
+
+<section class="section-alt" id="contato">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="route">/contato</span>
+      <h2>Vamos conversar</h2>
+    </div>
+    <p class="reveal" style="color:var(--gray);max-width:560px;font-size:16px">
+      Se você chegou até aqui por causa de um projeto, de uma vaga ou simplesmente porque encontrou meu trabalho, pode entrar em contato.
+    </p>
+    <div class="contact-links reveal">
+      <a href="https://github.com/Heuro12" target="_blank" rel="noopener">GitHub<span>github.com/Heuro12</span></a>
+      <a href="mailto:heurosamp@gmail.com">E-mail<span>heurosamp@gmail.com</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span class="logo">[ heuro dev ]</span>
+    <p>Construído por Heuro. <span id="year"></span></p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const menuBtn = document.getElementById('menuBtn');
+const mobileNav = document.getElementById('mobileNav');
+
+menuBtn.addEventListener('click', () => {
+  const isOpen = mobileNav.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', isOpen);
+  menuBtn.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+mobileNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.setAttribute('aria-label', 'Abrir menu');
+    document.body.style.overflow = '';
+  });
+});
+
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
-  
